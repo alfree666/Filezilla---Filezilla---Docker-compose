@@ -5,15 +5,15 @@ services:
   filezilla:
     image: lscr.io/linuxserver/filezilla:latest
     container_name: filezilla
-    security_opt:
-      - seccomp:unconfined #optional
+#    security_opt:
+#      - seccomp:unconfined #opcional solo para Docker Engine
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
     volumes:
       - ./config:/config
-      - ./docker-data:/var/lib/docker
+      - /home/user/docker-data:/var/lib/docker
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3000:3000
